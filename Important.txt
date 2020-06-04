@@ -28,3 +28,4 @@ jwt由头部,载荷,盐三部分组成.
 2.创建一个配置文件类 继承webMvcConfigurationSupport,重写addInterceptors方法.
 拦截器主要进行的是解析令牌.有不需要令牌的方法就直接放行
 栗子:用户登录上了博客就可以一直发帖.
+
