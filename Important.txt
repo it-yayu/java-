@@ -1,0 +1,30 @@
+一.阿里云短信:
+1.idea导入阿里云的两个maven依赖.
+2.阿里云短信认证:1.申请签名 2.申请模板.
+3.使用工具类SmsUtils.
+4.使用SmsUtils发短信.
+
+
+二.用户注册加密.
+1.导入jar security (默认拦截所有路径)
+2.配置相关的配置文件.
+3.启动类上添加bean,BcryptPasswordEncoder 
+4.注入BcryptPasswordEncoder
+
+三.基于jwt的token认证(token 跨域,无状态)
+jwt由头部,载荷,盐三部分组成.
+1.导入jjwt jar包
+2.引入jwt工具类(提供key,我们的盐)
+3.用户登录成功后用jwtUtiles生成token.
+4.管理员进行删除操作直接用jwtUtiles解析token,判断是管理员方可进行删除.
+当管理员要删除用户时,需要认证管理员身份,才可进行删除.
+
+四.统一异常处理类
+1.类上加注解@controllerAdvice
+2.方法上加注解@ExceptionHandler(value= Excepton.class)  @ResponseBody
+
+五.拦截器配置
+1.创建一个类实现HandlerInterceptorAdapter,实现preHandle方法
+2.创建一个配置文件类 继承webMvcConfigurationSupport,重写addInterceptors方法.
+拦截器主要进行的是解析令牌.有不需要令牌的方法就直接放行
+栗子:用户登录上了博客就可以一直发帖.
