@@ -207,6 +207,25 @@ select id from t where name like '%abc%'
 事务的作用:保证数据的一致性
 项目中事务应该控制在service层.
 
+jvm一共分为五大块:
+方法区,虚拟机栈,本地方法栈,堆,程序计数器.
+
+单例模式(懒汉式)
+public class God {
+    private static God god;
+
+    private God() {
+    }
+
+    public static God getInstance() {
+        if (null == god) {
+            god = new God();
+        }
+        return god;
+    }
+
+}
+
 
 
 

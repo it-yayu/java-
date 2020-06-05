@@ -29,3 +29,41 @@ jwt由头部,载荷,盐三部分组成.
 拦截器主要进行的是解析令牌.有不需要令牌的方法就直接放行
 栗子:用户登录上了博客就可以一直发帖.
 
+
+springCloud:
+参照:http://www.macrozheng.com/#/cloud/ribbon
+一.Spring Cloud Eureka：服务注册与发现(有负载均衡的功能)
+二.Spring Cloud Ribbon：负载均衡的服务调用(具有负载均衡功能)
+1.在pom.xml中添加相关依赖
+2.在application.yml进行配置
+3.使用@LoadBalanced注解赋予RestTemplate负载均衡的能力
+三.Spring Cloud Hystrix：服务容错保护
+@HystrixCommand(fallbackMethod = "getDefaultUser") 指定降级的方法.
+四.Spring Cloud Zuul：API网关服务
+所有的访问都会经过网关,由网关来调用各个微服务.网关也会注册到eureka.
+经过网关头信息会丢.需要在网关滤器中把头信息传下去.(可以直接在网关过滤器中验证权限)
+五.Spring Cloud Config：外部集中化配置管理 主要作用就是去git拉取配置文件.(不需要密码什么,配置比较简单参考十次方弟8章)
+六.Spring Cloud Bus：消息总线+rabbitmq 实现修改配置文件不用重启服务器.
+Spring Cloud Bus 配合 Spring Cloud Config 使用可以实现配置的动态刷新。
+目前 Spring Cloud Bus 支持两种消息代理：RabbitMQ 和 Kafka. 利用bus-refrence动态刷新,发送消息,客户端即可重新加载配置文件,从而省去了重启服务器.
+@RefreshScope 加此注解表示可以刷新自定义配置文件.
+
+
+DockerFile:
+gogs:一个管理代码的,类似git,gitlab...代码可以直接上传到gogs上.
+Jenkins(持续集成制作镜像):
+1.宿主机上安装jenkins.(rpm文件) 修改配置文件.
+2.web页面安装jenkins过程比较慢.
+3.在jenkins上进行maven和git插件安装.
+4.宿主机上安装maven.
+5.jenkins去全局工具配置. (jdk,git(默认),maven)
+每个模块maven添加插件.修改配置文件,逐个集成.
+
+
+
+
+
+
+
+
+
