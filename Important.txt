@@ -59,6 +59,12 @@ Jenkins(持续集成制作镜像):
 5.jenkins去全局工具配置. (jdk,git(默认),maven)
 每个模块maven添加插件.修改配置文件,逐个集成.
 
+容器管理和监控:
+rancher
+influxDb
+cAdvisor
+Grafana
+
 
 
 
