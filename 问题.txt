@@ -228,6 +228,29 @@ public class God {
 
 什么是HTTP协议?
 http协议:浏览器和服务器之间数据传输格式的规范.
+tcp/ip协议:专注的是客户端和服务器之间数据是否传输成功
+http协议:就是在tcp/ip协议基础之上封装的一套协议,专注的是客户端和服务器端数据传输的格式是否一致.
+
+
+long类型怎么比较是否相等?
+a.longValue() == b.longValue()，
+或者0 == Long.compare(a, b)；
+
+double类型装换long类型.
+double d = 88.88;
+long l = Math.round(d);
+
+long类型转换double类型.
+long ll = 100L;
+double dd = (double) ll;
+
+
+
+接口是否可继承（extends）接口？抽象类是否可实现（implements）接口？抽象类是否可继承具体类（concrete class）？
+
+答：接口可以继承接口，而且支持多重继承。抽象类可以实现(implements)接口，抽象类可继承具体类也可以继承抽象类
+
+
 
 
 

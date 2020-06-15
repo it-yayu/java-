@@ -29,6 +29,13 @@ jwt由头部,载荷,盐三部分组成.
 拦截器主要进行的是解析令牌.有不需要令牌的方法就直接放行
 栗子:用户登录上了博客就可以一直发帖.
 
+六.Spring Boot 整合 RabbitMQ，消息重复消费怎么办？
+使用redis每次消费完把这一条记录记录的redis中.消费之前先去redis中判断看是否有记录,有的话说明已经消费过该消息,
+不在消费,没有的话就进行消费,消费后记录到redis中.(将rabbitmq自动检测消息改为手动)
+
+
+
+
 
 springCloud:
 参照:http://www.macrozheng.com/#/cloud/ribbon
